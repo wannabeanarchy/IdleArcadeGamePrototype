@@ -8,7 +8,6 @@ namespace IdleArcade
         [SerializeField] private float speed;
         [SerializeField] private float height;
         [SerializeField] private VariableJoystick variableJoystick;
-        [SerializeField] private Vector3 cameraOffset = new Vector3(.5f, 12, -11);
         [NonSerialized]  private Animator animatorPlayer;
         [NonSerialized]  private Camera cameraMain;
 
@@ -32,10 +31,9 @@ namespace IdleArcade
                 Vector3 movement = Vector3.ClampMagnitude(forwardMovement + horizontalMovement, 1);
 
                 transform.Translate(movement * speed * Time.deltaTime, Space.World);
-               
                 transform.eulerAngles = new Vector3(0, Mathf.Atan2(variableJoystick.Horizontal, variableJoystick.Vertical) * 180 / Mathf.PI, 0);
 
-                ReplaceCamera();
+                PlayerController.Instance().ReplaceCamera();
             }
             else
             {
@@ -43,11 +41,7 @@ namespace IdleArcade
             }
         }
 
-        void ReplaceCamera()
-        {
-            Camera.main.transform.position = (cameraOffset + this.transform.position);
-
-        }
+      
 
         
     }

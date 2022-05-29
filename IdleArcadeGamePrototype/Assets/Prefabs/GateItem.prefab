@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c472bf37a8424e043a0486a66b1c8a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pause: 0.1
+  pause: 0.05
   textCost: {fileID: 676164305}
 --- !u!65 &5007750215239486532
 BoxCollider:

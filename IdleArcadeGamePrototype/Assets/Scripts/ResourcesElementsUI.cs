@@ -17,15 +17,23 @@ namespace IdleArcade.UI
         private void Start()
         {
             targetText = GetComponent<Text>();
+             
             IdleArcadeEvents.resourcesGettingEvent += OnGettingResources;
+            IdleArcadeEvents.startGameEvent += ResourcesValueInit;
         }
 
         private void OnDestroy()
         {
             IdleArcadeEvents.resourcesGettingEvent -= OnGettingResources;
+            IdleArcadeEvents.startGameEvent -= ResourcesValueInit;
 
         }
 
+        private void ResourcesValueInit()
+        { 
+            value = PlayerPrefs.GetInt(TextKeys.PREF_RES + typeResources, 0);
+            targetText.text = value.ToString();
+        }
 
         private void OnGettingResources(TypeResources resource, int count)
         {

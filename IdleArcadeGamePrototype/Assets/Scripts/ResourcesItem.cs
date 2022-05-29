@@ -18,7 +18,19 @@ namespace IdleArcade
 
         private void Start()
         {
-            animator = gameObject.GetComponentInChildren<Animator>(); 
+            animator = gameObject.GetComponentInChildren<Animator>();
+            IdleArcadeEvents.startGameEvent += OnStartGame;
+        }
+
+        private void OnDestroy()
+        {
+            IdleArcadeEvents.startGameEvent -= OnStartGame;
+        }
+
+        void OnStartGame()
+        {
+            animator.Play("ResourcesSpawn");
+            isDead = false;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -34,14 +46,13 @@ namespace IdleArcade
 
         public void OnGettingResources()
         {
-            animator.SetInteger(TextKeys.ANIM_DISSAPEARS_PARAMETR, 1);
-
+            animator.Play("ResourcesDisappear");
+            IdleArcadeEvents.onResourcesSound?.Invoke();
             isDead = true;
         }
 
         private void OnDissapear()
-        { 
-            animator.SetInteger(TextKeys.ANIM_DISSAPEARS_PARAMETR, 0);
+        {  
 
             IdleArcadeEvents.resourcesGettingEvent?.Invoke(typeResources, countResources);
             PlayerController.Instance().OnGettingResources(typeResources, countResources);
@@ -52,15 +63,9 @@ namespace IdleArcade
         private IEnumerator WaitForSpawn()
         { 
             yield return new WaitForSeconds(respawnTime);
-            animator.SetInteger(TextKeys.ANIM_SPAWN_PARAMETR, 1);
-
-        }
-
-        private void OnSpawn()
-        { 
-            animator.SetInteger(TextKeys.ANIM_DISSAPEARS_PARAMETR, 0);
-            animator.SetInteger(TextKeys.ANIM_SPAWN_PARAMETR, 0);
+            animator.Play("ResourcesSpawn");
             isDead = false; 
         }
+ 
     }
 }

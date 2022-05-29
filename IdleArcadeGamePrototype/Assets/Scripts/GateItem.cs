@@ -29,6 +29,7 @@ namespace IdleArcade
             foreach (var res in gateCostList)
             {
                 strText += String.Format("[{0}]: {1}/{2} ", res.typeResources.ToString(), res.currentCost, res.cost);
+                res.currentCost = PlayerPrefs.GetInt(TextKeys.PREF_LINK_HEX + linkCellHex.name + res.typeResources, 0);
             }
             textCost.text = strText;
         }
@@ -82,6 +83,7 @@ namespace IdleArcade
                             IdleArcadeEvents.resourcesGettingEvent?.Invoke(res.typeResources, -1);
                             PlayerController.Instance().AddResource(res.typeResources, -1);
                             res.currentCost++;
+                            PlayerPrefs.SetInt(TextKeys.PREF_LINK_HEX + linkCellHex.name + res.typeResources, res.currentCost);
                             UpdateTextCost();
                         }
                     }
@@ -90,6 +92,7 @@ namespace IdleArcade
                 if (countFull == gateCostList.Count)
                 {
                     linkCellHex.SetActive(true);
+                    linkCellHex.GetComponent<CellHexItem>().SaveCellHexOpen();
                     this.gameObject.SetActive(false);
                 }
             }

@@ -9,12 +9,11 @@ namespace IdleArcade
     public static class TextKeys
     {
         public static string ANIM_RUNNING_PARAMETR = "AnimationRun";
-        public static string ANIM_CUTTING_PARAMETR = "AnimationCutting";
+  
 
-
-        public static string ANIM_DISSAPEARS_PARAMETR = "NeedDissapers";
-        public static string ANIM_SPAWN_PARAMETR = "NeedSpawn";
-
+        public static string PREF_CELLHEX = "CELLHEX_ENABLE";
+        public static string PREF_RES = "PREF_RES_";
+        public static string PREF_LINK_HEX = "PREF_LINK_HEX_";
 
     }
 }
