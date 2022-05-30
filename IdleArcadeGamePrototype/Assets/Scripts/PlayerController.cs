@@ -177,15 +177,10 @@ namespace IdleArcade
             if (other.tag == "Enemy")
             {
                 isAttack = false;
-            }
-            if (other.tag == "Resource")
-            {
+                HideWeapon();
             }
 
-            StopAllCoroutines();
-
-            HideWeapon();
-            animatorPlayer.Play("Idle"); 
+            StopAllCoroutines(); 
         }
 
         public void TakeDamage(int amount)
