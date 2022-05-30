@@ -39,10 +39,6 @@ namespace IdleArcade
             {
                 animatorPlayer.SetInteger(TextKeys.ANIM_RUNNING_PARAMETR, 0);
             }
-        }
-
-      
-
-        
+        }  
     }
 }

@@ -2298,7 +2298,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1328986990472984, guid: 4f49c09706dbf4a4e99dc6a51fab25cc, type: 3}
       propertyPath: m_Name
-      value: HexSand03_2
+      value: HexSand03_4
       objectReference: {fileID: 0}
     - target: {fileID: 1328986990472984, guid: 4f49c09706dbf4a4e99dc6a51fab25cc, type: 3}
       propertyPath: m_TagString

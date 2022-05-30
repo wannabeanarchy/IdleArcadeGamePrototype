@@ -43,7 +43,7 @@ namespace IdleArcade
             OnRespawn();
             currentHealth = health;
 
-            healthBar = Instantiate(healthBarPrefab, GameUI.Instance().transform);
+            healthBar = Instantiate(healthBarPrefab, UI.GameUI.Instance().transform);
             healthBarProgress = healthBar.transform.GetChild(0).GetComponent<Image>();
             healthBar.SetActive(false);  
         }

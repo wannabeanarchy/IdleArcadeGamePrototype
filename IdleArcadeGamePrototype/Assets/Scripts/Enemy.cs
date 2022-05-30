@@ -32,7 +32,7 @@ namespace IdleArcade
             animator = GetComponent<Animator>();
             currentHealth = health; 
             mainCamera = Camera.main;
-            healthBar = Instantiate(healthBarPrefab, GameUI.Instance().transform);
+            healthBar = Instantiate(healthBarPrefab, UI.GameUI.Instance().transform);
             healthBarProgress = healthBar.transform.GetChild(0).GetComponent<Image>();
             healthBar.SetActive(false);
             IdleArcadeEvents.onBackLobbyEvent += OnBackClick;
