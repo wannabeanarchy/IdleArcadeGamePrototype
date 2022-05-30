@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnTime: 5
   countResources: 10
+  resorcesCuttingTime: 0.5
   typeResources: 1
 --- !u!136 &9013610723542116502
 CapsuleCollider:

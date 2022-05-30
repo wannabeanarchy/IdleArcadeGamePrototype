@@ -89,7 +89,7 @@ namespace IdleArcade
             currentItem = resourcesItem;
         }
 
-        public void OnCuttingAnimationEnd()
+        public void OnResourcesGot()
         {
             if (currentItem)
             {
